@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Proveedores</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="container mx-auto my-8 p-6 max-w-lg bg-white rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold text-gray-800 text-center mb-6">Agregar/Editar Proveedor</h2>
+        <form th:action="@{/proveedores/guardar}" th:object="${proveedores}" method="post" class="space-y-4">
+            <input type="hidden" th:field="*{id}" />
+            <div>
+                <label for="nombre" class="block text-gray-700 font-medium">Nombre:</label>
+                <input 
+                    type="text" 
+                    id="nombre" 
+                    th:field="*{nombre}" 
+                    required 
+                    class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+            </div>
+            <div>
+                <label for="contacto" class="block text-gray-700 font-medium">Contacto:</label>
+                <input 
+                    type="text" 
+                    id="contacto" 
+                    th:field="*{contacto}" 
+                    required 
+                    class="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+            </div>
+             <div class="flex justify-between items-center">
+                <button 
+                    type="submit" 
+                    class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                    Guardar
+                </button>
+                <a 
+                    href="/proveedores" 
+                    class="text-gray-700 hover:text-gray-900 font-medium"
+                >
+                    Cancelar
+                </a>
+            </div>
+</div>
+        </form>
+    </div>
+</body>
+</html>
